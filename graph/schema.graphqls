@@ -1,0 +1,33 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+# En el esquema se realizaran consultas y mutaciones
+schema { 
+  query: Query
+  mutation: Mutation
+}
+
+# Se realizaran dos consultas
+type Query {
+  characters: [Character!]!
+  search(name: String!): Character
+}
+
+# La mutación que se realizará
+type Mutation {
+  add(character: CharacterInput!): Character!
+}
+
+# Un tipo de entrada para la mutación
+input CharacterInput {
+  name: String!
+  likes: Int!
+}
+
+# Esquema personaje
+type Character {
+  id: ID!
+  name: String!
+  likes: Int!
+}
